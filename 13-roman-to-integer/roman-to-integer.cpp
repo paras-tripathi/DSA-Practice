@@ -20,6 +20,6 @@ public:
             }
         }
 
-        return res + roman[s[s.size() - 1]];        
+        return res + roman[s.back()];
     }
 };
