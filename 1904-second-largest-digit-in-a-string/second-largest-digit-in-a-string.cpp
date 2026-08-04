@@ -1,16 +1,18 @@
 class Solution {
 public:
     int secondHighest(string s) {
-        sort(s.begin(), s.end());
-        int i = 0;
-        while (i < s.size() && isdigit(s[i])) {
-            i++;
-        }
-        for (int k = i - 1; k >= 0; k--) {
-            if (s[k] - '0' != s[i - 1] - '0') {
-                return s[k] - '0';
+        string alpha="abcdefghijklmnopqrstuvwxyz";
+        int max1=-1, max2=-1;
+        for(char i:s){
+            if(!alpha.contains(i)){
+                int digit = i-'0';
+                if(digit>max1){
+                    max2=max1;
+                    max1=digit;
+                }
+                else if(digit>max2 && digit<max1) max2=digit;
             }
         }
-        return -1;
+        return max2;
     }
-};
+};  
