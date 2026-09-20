@@ -1,8 +1,8 @@
 class Solution {
 public:
     int reverseDegree(string& s) {
-        return accumulate(s.begin(), s.end(), 0, [i=0](int sum, char c) mutable {
-            return sum+=(i+++1)*('z'-c+1);
-        });
+        int sum=0, n=s.size();
+        for(int i=0; i<n; i++) sum+=(i+1)*('z'-s[i]+1);
+        return sum;
     }
 };
